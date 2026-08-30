@@ -1,8 +1,9 @@
 # Why Bee Is Great — on a XIAO ESP32-S3
 
-Serves the same site from the board's onboard flash over its own WiFi
-hotspot. No router or internet connection needed — anyone nearby
-connects to the board's WiFi and browses to it directly.
+Serves the same site from the board's onboard flash, joined to your
+home WiFi network. Once it's running, you can visit `/update` in a
+browser to upload new site files over WiFi — no USB cable needed after
+the first flash.
 
 ## One-time setup
 
@@ -22,6 +23,9 @@ connects to the board's WiFi and browses to it directly.
    https://github.com/earlephilhower/arduino-littlefs-upload —
    install the `.vsix`/plugin per that repo's instructions, restart
    the IDE.
+6. **Set your WiFi credentials**: copy `secrets.h.example` to
+   `secrets.h` (same folder) and fill in your WiFi network name and
+   password. `secrets.h` is gitignored so it's never committed.
 
 ## Flashing
 
@@ -34,16 +38,23 @@ connects to the board's WiFi and browses to it directly.
 
 ## Using it
 
-1. On your phone or laptop, connect to the WiFi network **WhyBeeIsGreat**
-   (password: `beeisgreat` — change `AP_PASSWORD` in `BeeWebsite.ino`
-   before flashing if you want a different one).
-2. Open a browser and go to `http://192.168.4.1`
+1. Open the Serial Monitor (Tools > Serial Monitor, 115200 baud) after
+   uploading — it prints the IP address the board was assigned by your
+   router once it connects to WiFi.
+2. On any device on the same WiFi network, browse to that IP, or try
+   `http://beewebsite.local` (works out of the box on Mac/iOS/Android;
+   Windows may need Bonjour or an mDNS-aware browser).
 3. The page loads, including both live countdown timers — they run on
-   your device's own clock, so no internet or time sync is needed.
+   your device's own clock, so no internet or time sync is needed on
+   the board itself.
 
-## Updating content
+## Updating content over WiFi
 
-Edit the files in `data/` (they're a copy of the main site's
-`index.html` / `style.css`, with the Google Fonts links swapped for
-system fonts since the board has no internet access), then repeat the
-"Flashing" steps to re-upload.
+Once the board is running and connected:
+
+1. Browse to `http://<board-ip>/update` (or `http://beewebsite.local/update`)
+2. Choose a new `index.html` and/or `style.css` file and click Upload
+3. Refresh the main page to see the change — no USB cable or Arduino
+   IDE required
+
+This overwrites the files directly in the board's flash storage.
