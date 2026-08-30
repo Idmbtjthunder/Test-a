@@ -59,6 +59,8 @@ void handleUpdatePage() {
     "<form method='POST' action='/update' enctype='multipart/form-data'>"
     "<label>index.html<input type='file' name='index' accept='.html'></label>"
     "<label>style.css<input type='file' name='style' accept='.css'></label>"
+    "<label>foxes.html<input type='file' name='foxes' accept='.html'></label>"
+    "<label>foxes.css<input type='file' name='foxesStyle' accept='.css'></label>"
     "<button type='submit'>Upload</button>"
     "</form></body></html>");
 }
@@ -68,6 +70,8 @@ void handleUpload() {
   String target;
   if (upload.name == "index") target = "/index.html";
   else if (upload.name == "style") target = "/style.css";
+  else if (upload.name == "foxes") target = "/foxes.html";
+  else if (upload.name == "foxesStyle") target = "/foxes.css";
   else return;
 
   if (upload.status == UPLOAD_FILE_START) {

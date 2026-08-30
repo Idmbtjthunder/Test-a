@@ -289,6 +289,18 @@ footer {
   border-top: 1px solid rgba(138, 26, 42, 0.35);
 }
 
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(217, 164, 65, 0.4);
+}
+
+footer a:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
 @media (max-width: 480px) {
   .hero {
     padding: 3rem 1rem 3.5rem;

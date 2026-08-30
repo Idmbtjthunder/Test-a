@@ -53,8 +53,9 @@ the first flash.
 Once the board is running and connected:
 
 1. Browse to `http://<board-ip>/update` (or `http://beewebsite.local/update`)
-2. Choose a new `index.html` and/or `style.css` file and click Upload
-3. Refresh the main page to see the change — no USB cable or Arduino
-   IDE required
+2. Choose new `index.html`, `style.css`, `foxes.html`, and/or `foxes.css`
+   files (any combination) and click Upload
+3. Refresh the page to see the change — no USB cable or Arduino IDE
+   required
 
 This overwrites the files directly in the board's flash storage.

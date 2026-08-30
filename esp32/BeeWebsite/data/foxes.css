@@ -1,0 +1,169 @@
+:root {
+  --rust: #d97a3d;
+  --rust-deep: #7a3a18;
+  --amber: #eda65c;
+}
+
+/* Hero recolor: rust/amber instead of gold/blood */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(122, 58, 24, 0.45), transparent 60%),
+    radial-gradient(ellipse at 50% 20%, rgba(237, 166, 92, 0.12), transparent 65%),
+    linear-gradient(180deg, #1a0f08, #0a0605);
+  border-bottom: 1px solid rgba(122, 58, 24, 0.45);
+}
+
+.hero::before {
+  background: radial-gradient(circle at 35% 35%, #fff3e0, var(--amber) 45%, #a85f2a 75%, transparent 78%);
+  box-shadow:
+    0 0 50px 18px rgba(237, 166, 92, 0.2),
+    0 0 130px 55px rgba(122, 58, 24, 0.22);
+}
+
+.hero::after {
+  border-color: rgba(217, 122, 61, 0.35);
+}
+
+.hero h1 {
+  color: var(--rust);
+  text-shadow: 0 0 24px rgba(122, 58, 24, 0.55);
+}
+
+h2::after {
+  background: linear-gradient(90deg, transparent, var(--rust-deep), var(--amber), var(--rust-deep), transparent);
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--rust);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(217, 122, 61, 0.4);
+}
+
+.back-link:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* Species grid */
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.species-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(217, 122, 61, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.species-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 122, 61, 0.6);
+  box-shadow: 0 4px 20px rgba(217, 122, 61, 0.25);
+}
+
+.species-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: #1a140e;
+}
+
+.species-body {
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+.species-body h3 {
+  margin: 0 0 0.15rem;
+  color: var(--rust);
+}
+
+.species-sci {
+  display: block;
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.species-body p {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
+}
+
+.species-credit {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  opacity: 0.7;
+}
+
+/* Facts */
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.fact-card {
+  background: var(--card-bg);
+  border-left: 4px solid var(--rust);
+  border-radius: 8px;
+  padding: 1.1rem 1.35rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  color: var(--text-dim);
+}
+
+/* Famous foxes */
+.famous-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.famous-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(217, 122, 61, 0.25);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.famous-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  background: rgba(217, 122, 61, 0.12);
+  border: 1px solid rgba(217, 122, 61, 0.3);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.famous-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--text);
+}
+
+.famous-card p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+.section-hint {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-top: 1.25rem;
+}
