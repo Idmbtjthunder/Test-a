@@ -1,0 +1,298 @@
+:root {
+  --gold: #d9a441;
+  --dim-gold: #a87a2e;
+  --ember: #e8b45a;
+  --blood: #8a1a2a;
+  --blood-deep: #4a0d16;
+  --moon: #f2e9d8;
+  --bg: #0d0a08;
+  --panel: #1c1712;
+  --card-bg: #1a1310;
+  --text: #e8dfd0;
+  --text-dim: #a89a84;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='none' stroke='%238a1a2a' stroke-width='0.6' opacity='0.22'%3E%3Ccircle cx='130' cy='130' r='95'/%3E%3Ccircle cx='130' cy='130' r='60'/%3E%3Cpolygon points='130,45 200,175 60,175'/%3E%3Cpolygon points='130,215 60,85 200,85'/%3E%3C/g%3E%3C/svg%3E"),
+    repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(217, 164, 65, 0.02) 40px, rgba(217, 164, 65, 0.02) 42px),
+    repeating-linear-gradient(-60deg, transparent, transparent 40px, rgba(217, 164, 65, 0.02) 40px, rgba(217, 164, 65, 0.02) 42px),
+    radial-gradient(ellipse at 50% 0%, rgba(138, 26, 42, 0.15), transparent 60%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(138, 26, 42, 0.4), transparent 60%),
+    radial-gradient(ellipse at 50% 20%, rgba(232, 180, 90, 0.1), transparent 65%),
+    linear-gradient(180deg, #170d0c, #0a0605);
+  padding: 5rem 1.5rem 5.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(138, 26, 42, 0.4);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fdf6e3, var(--moon) 40%, #b89f6f 72%, transparent 74%);
+  box-shadow:
+    0 0 50px 18px rgba(232, 180, 90, 0.18),
+    0 0 130px 55px rgba(138, 26, 42, 0.2);
+  opacity: 0.85;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(138, 26, 42, 0.35);
+  border-radius: 50%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-emoji {
+  font-size: 3rem;
+  margin: 0;
+  filter: drop-shadow(0 0 12px rgba(232, 180, 90, 0.4));
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  margin: 0.25rem 0;
+  color: var(--ember);
+  text-shadow: 0 0 24px rgba(138, 26, 42, 0.5);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  color: var(--text);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--blood), var(--dim-gold), var(--blood), transparent);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Reasons */
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.reason-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(217, 164, 65, 0.25);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 26, 42, 0.6);
+  box-shadow: 0 4px 20px rgba(138, 26, 42, 0.25);
+}
+
+.reason-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+}
+
+.reason-card p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+/* Memories */
+.memory-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.memory-card {
+  background: var(--card-bg);
+  border-left: 4px solid var(--blood);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.memory-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.memory-card p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  background: repeating-linear-gradient(45deg, #241d15, #241d15 10px, #1a140e 10px, #1a140e 20px);
+  border-radius: 12px;
+  border: 1px solid rgba(217, 164, 65, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.gallery-hint {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-top: 1.25rem;
+}
+
+/* Countdowns */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.countdown-card {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(138, 26, 42, 0.15), transparent 70%),
+    var(--card-bg);
+  border: 1px solid rgba(138, 26, 42, 0.4);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-card h3 {
+  margin: 0 0 0.35rem;
+  color: var(--ember);
+}
+
+.countdown-sub {
+  margin: 0 0 1.25rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+}
+
+.countdown-value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--gold);
+  text-shadow: 0 0 16px rgba(138, 26, 42, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(217, 164, 65, 0.25);
+  border-radius: 10px;
+  padding: 0.4rem 0.5rem;
+  min-width: 3rem;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-top: 0.4rem;
+}
+
+.countdown-status {
+  margin: 0.75rem 0 0;
+  color: var(--ember);
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(138, 26, 42, 0.2), transparent 70%),
+    #0a0605;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  border-top: 1px solid rgba(138, 26, 42, 0.35);
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem 3.5rem;
+  }
+}
