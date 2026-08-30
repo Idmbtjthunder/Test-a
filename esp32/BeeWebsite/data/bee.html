@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Bee Is Great</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-emoji">🐝</p>
+    <h1>Why Bee Is Great</h1>
+    <p class="subtitle">A completely unbiased, totally objective list of facts.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="reasons">
+    <h2>The Reasons</h2>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <h3>Reason #1</h3>
+        <p>[Placeholder — something Bee is amazing at]</p>
+      </div>
+      <div class="reason-card">
+        <h3>Reason #2</h3>
+        <p>[Placeholder — a personality trait you love]</p>
+      </div>
+      <div class="reason-card">
+        <h3>Reason #3</h3>
+        <p>[Placeholder — a funny quirk]</p>
+      </div>
+      <div class="reason-card">
+        <h3>Reason #4</h3>
+        <p>[Placeholder — something kind Bee did]</p>
+      </div>
+      <div class="reason-card">
+        <h3>Reason #5</h3>
+        <p>[Placeholder — a shared memory or joke]</p>
+      </div>
+      <div class="reason-card">
+        <h3>Reason #6</h3>
+        <p>[Placeholder — just because]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="memories">
+    <h2>Memories</h2>
+    <div class="memory-list">
+      <div class="memory-card">
+        <h3>[Memory title]</h3>
+        <p>[Placeholder — tell the story here]</p>
+      </div>
+      <div class="memory-card">
+        <h3>[Another memory title]</h3>
+        <p>[Placeholder — tell another story here]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">Photo 1</div>
+      <div class="gallery-item">Photo 2</div>
+      <div class="gallery-item">Photo 3</div>
+      <div class="gallery-item">Photo 4</div>
+    </div>
+    <p class="gallery-hint">Drop real photos into the <code>assets/</code> folder and swap these placeholders for <code>&lt;img&gt;</code> tags.</p>
+  </section>
+
+  <section class="countdowns">
+    <h2>Upcoming Rituals</h2>
+    <div class="countdown-grid">
+      <div class="countdown-card" data-target="2026-09-04T00:00:00">
+        <h3>Fantasy Forest: Libertalia</h3>
+        <p class="countdown-sub">Hatfield Park &middot; 4&ndash;6 September 2026</p>
+        <div class="countdown-timer">
+          <div class="countdown-unit"><span class="countdown-value" data-unit="days">00</span><span class="countdown-label">days</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="hours">00</span><span class="countdown-label">hrs</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="minutes">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="seconds">00</span><span class="countdown-label">sec</span></div>
+        </div>
+        <p class="countdown-status"></p>
+      </div>
+      <div class="countdown-card" data-target="2026-10-23T00:00:00">
+        <h3>MCM London Comic Con</h3>
+        <p class="countdown-sub">ExCeL London &middot; 23&ndash;25 October 2026</p>
+        <div class="countdown-timer">
+          <div class="countdown-unit"><span class="countdown-value" data-unit="days">00</span><span class="countdown-label">days</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="hours">00</span><span class="countdown-label">hrs</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="minutes">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-value" data-unit="seconds">00</span><span class="countdown-label">sec</span></div>
+        </div>
+        <p class="countdown-status"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>🐝 In conclusion: Bee is great. Case closed. 🐝</p>
+  <p><a class="back-link" href="foxes.html">Meet the Foxes &rarr;</a></p>
+</footer>
+
+<script>
+  function updateCountdowns() {
+    document.querySelectorAll('.countdown-card').forEach(function (card) {
+      var target = new Date(card.dataset.target).getTime();
+      var now = Date.now();
+      var diff = target - now;
+      var statusEl = card.querySelector('.countdown-status');
+      var timerEl = card.querySelector('.countdown-timer');
+
+      if (diff <= 0) {
+        timerEl.style.display = 'none';
+        statusEl.textContent = 'It\'s here.';
+        return;
+      }
+
+      var seconds = Math.floor(diff / 1000);
+      var days = Math.floor(seconds / 86400);
+      var hours = Math.floor((seconds % 86400) / 3600);
+      var minutes = Math.floor((seconds % 3600) / 60);
+      var secs = seconds % 60;
+
+      card.querySelector('[data-unit="days"]').textContent = String(days).padStart(2, '0');
+      card.querySelector('[data-unit="hours"]').textContent = String(hours).padStart(2, '0');
+      card.querySelector('[data-unit="minutes"]').textContent = String(minutes).padStart(2, '0');
+      card.querySelector('[data-unit="seconds"]').textContent = String(secs).padStart(2, '0');
+      statusEl.textContent = '';
+    });
+  }
+
+  updateCountdowns();
+  setInterval(updateCountdowns, 1000);
+</script>
+
+</body>
+</html>

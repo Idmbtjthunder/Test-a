@@ -44,17 +44,19 @@ the first flash.
 2. On any device on the same WiFi network, browse to that IP, or try
    `http://beewebsite.local` (works out of the box on Mac/iOS/Android;
    Windows may need Bonjour or an mDNS-aware browser).
-3. The page loads, including both live countdown timers — they run on
-   your device's own clock, so no internet or time sync is needed on
-   the board itself.
+3. The splash page loads first — click "Enter" to reach the Bee page,
+   including both live countdown timers, which run on your device's
+   own clock, so no internet or time sync is needed on the board
+   itself.
 
 ## Updating content over WiFi
 
 Once the board is running and connected:
 
 1. Browse to `http://<board-ip>/update` (or `http://beewebsite.local/update`)
-2. Choose new `index.html`, `style.css`, `foxes.html`, and/or `foxes.css`
-   files (any combination) and click Upload
+2. Choose new `index.html` (splash), `splash.css`, `style.css`,
+   `bee.html`, `foxes.html`, and/or `foxes.css` files (any combination)
+   and click Upload
 3. Refresh the page to see the change — no USB cable or Arduino IDE
    required
 

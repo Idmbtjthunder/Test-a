@@ -1,6 +1,6 @@
 // Serves the "Why Bee Is Great" site from the XIAO ESP32-S3's onboard
 // flash, joined to your home WiFi network. Visit /update in a browser
-// to upload new index.html/style.css files without needing USB again.
+// to upload new site files without needing USB again.
 //
 // Setup:
 //   1. Copy secrets.h.example to secrets.h and fill in your WiFi
@@ -57,8 +57,10 @@ void handleUpdatePage() {
     "button{margin-top:1.5rem;padding:0.6rem 1.2rem;}</style></head><body>"
     "<h2>Update Bee Site</h2>"
     "<form method='POST' action='/update' enctype='multipart/form-data'>"
-    "<label>index.html<input type='file' name='index' accept='.html'></label>"
+    "<label>index.html (splash)<input type='file' name='index' accept='.html'></label>"
+    "<label>splash.css<input type='file' name='splashStyle' accept='.css'></label>"
     "<label>style.css<input type='file' name='style' accept='.css'></label>"
+    "<label>bee.html<input type='file' name='bee' accept='.html'></label>"
     "<label>foxes.html<input type='file' name='foxes' accept='.html'></label>"
     "<label>foxes.css<input type='file' name='foxesStyle' accept='.css'></label>"
     "<button type='submit'>Upload</button>"
@@ -69,7 +71,9 @@ void handleUpload() {
   HTTPUpload &upload = server.upload();
   String target;
   if (upload.name == "index") target = "/index.html";
+  else if (upload.name == "splashStyle") target = "/splash.css";
   else if (upload.name == "style") target = "/style.css";
+  else if (upload.name == "bee") target = "/bee.html";
   else if (upload.name == "foxes") target = "/foxes.html";
   else if (upload.name == "foxesStyle") target = "/foxes.css";
   else return;

@@ -1,0 +1,82 @@
+:root {
+  --amber-wolf: #d9722e;
+  --amber-wolf-deep: #7a3312;
+  --dusk: #f0a35e;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.splash {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(122, 51, 18, 0.4), transparent 60%),
+    radial-gradient(ellipse at 50% 20%, rgba(240, 163, 94, 0.1), transparent 65%),
+    linear-gradient(180deg, #170d0c, #0a0605);
+}
+
+.splash-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 420px;
+}
+
+.splash-photo {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(217, 114, 46, 0.4);
+  box-shadow:
+    0 0 50px 12px rgba(240, 163, 94, 0.15),
+    0 4px 24px rgba(0, 0, 0, 0.5);
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.splash h1 {
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  margin: 0 0 0.75rem;
+  color: var(--amber-wolf);
+  text-shadow: 0 0 24px rgba(122, 51, 18, 0.55);
+}
+
+.splash-sub {
+  margin: 0 0 2.5rem;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+.enter-button {
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--dusk), var(--amber-wolf));
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(217, 114, 46, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.enter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(217, 114, 46, 0.5);
+}
+
+@media (max-width: 480px) {
+  .splash-photo {
+    max-width: 280px;
+  }
+}
